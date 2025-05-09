@@ -1,4 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import ContadorComponent from './Componentes/ContadorComponent';
 
@@ -13,7 +12,7 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+   container: {
     flex: 1,
     padding: 16,
     backgroundColor: '#f2f2f2',

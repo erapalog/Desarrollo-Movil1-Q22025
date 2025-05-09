@@ -4,7 +4,18 @@ import { Persona } from '../Modelos/Persona'
 
 export default function ListaPersonaComponent() {
 
-  const [listaPersona, setListaPersona] = useState<Array<Persona>>([]);
+  const [listaPersona, setListaPersona] = useState<Array<Persona>>([
+    {id: 1, name:"ANA"},
+    {id: 2, name:"JUAN"},
+    {id: 3, name:"PABLO"},
+    {id: 4, name:"EMI"},
+    {id: 5, name:"JESS"},
+    {id: 6, name:"ROUS"},
+    {id: 7, name:"ANDREA"},
+    {id: 8, name:"CRIS"},
+    {id: 9, name:"CARLOS"},
+    {id: 10, name:"OSCAR"}
+  ]);
 
 
   function agregarPersona(){
@@ -19,23 +30,11 @@ export default function ListaPersonaComponent() {
 
   useEffect(()=>{
 
-    setListaPersona([...listaPersona, 
-                {id: 1, name:"ANA"},
-            {id: 2, name:"JUAN"},
-            {id: 3, name:"PABLO"},
-            {id: 4, name:"EMI"},
-            {id: 5, name:"JESS"},
-            {id: 6, name:"ROUS"},
-            {id: 7, name:"ANDREA"},
-            {id: 8, name:"CRIS"},
-            {id: 9, name:"CARLOS"},
-            {id: 10, name:"OSCAR"}
-      ])
   },[])
 
 
   return (
-    <View>
+    <View >
       <Text>Lista de Personas</Text>
       <Button title='Agregar Persona' onPress={agregarPersona}></Button>
 
@@ -55,7 +54,7 @@ export default function ListaPersonaComponent() {
 }
 
 const styles = StyleSheet.create({
-  
+ 
   card: {
     backgroundColor: '#fff',
     padding: 20,
