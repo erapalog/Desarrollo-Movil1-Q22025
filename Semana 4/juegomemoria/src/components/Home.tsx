@@ -1,47 +1,47 @@
-import { View, Text, FlatList, TouchableOpacity ,StyleSheet, Alert} from 'react-native'
+import { View, Text, FlatList, TouchableOpacity, StyleSheet, Alert } from 'react-native'
 import React from 'react'
 import { useJuegoContext } from '../Provider/JuegosProvider'
 
 export default function Home() {
 
-    const {sumarPartida,cartas,cantidadPartidas}=useJuegoContext();
-    let cartasSeleccionadas=[] as number[];
+  const { sumarPartida, cartas, cantidadPartidas } = useJuegoContext();
+  let cartasSeleccionadas = [] as number[];
 
-   function seleccionarCarta(item:number){
-        cartasSeleccionadas.push(item)
+  function seleccionarCarta(item: number) {
+    cartasSeleccionadas.push(item)
 
-        if(cartasSeleccionadas.length==2){
-            if(cartasSeleccionadas[0]===cartasSeleccionadas[1]){
-                Alert.alert('"Gano la partida"')
-                console.log("Gano la partida")
-                 sumarPartida({id:cartasSeleccionadas[0],descripcion:'Partida Ganada'})
-            }
-            else{
-                Alert.alert('Partida Finalizada')
-                console.log("Partida finalizada")
-                sumarPartida({id:cartasSeleccionadas[0],descripcion:'Partida Perdida'})
+    if (cartasSeleccionadas.length == 2) {
+      if (cartasSeleccionadas[0] === cartasSeleccionadas[1]) {
+        Alert.alert('"Gano la partida"')
+        console.log("Gano la partida")
+        sumarPartida({ id: cartasSeleccionadas.length + 1, descripcion: 'Partida Ganada' })
+      }
+      else {
+        Alert.alert('Partida Finalizada')
+        console.log("Partida finalizada")
+        sumarPartida({ id: cartasSeleccionadas.length + 2, descripcion: 'Partida Perdida' })
 
-            }
+      }
 
-           
-        }
+
     }
+  }
 
   return (
     <View>
-          <FlatList
-            data={cartas}
-            keyExtractor={(_, i) => i.toString()}
-            numColumns={4}
-            contentContainerStyle={styles.grid}
-            renderItem={({ item }) => (
-                <TouchableOpacity style={styles.card} onPress={()=>seleccionarCarta(item)}>
-                <Text style={styles.cardText}>S</Text>
-                </TouchableOpacity>
-            )}
-    />
+      <FlatList
+        data={cartas}
+        keyExtractor={(_, i) => i.toString()}
+        numColumns={4}
+        contentContainerStyle={styles.grid}
+        renderItem={({ item }) => (
+          <TouchableOpacity style={styles.card} onPress={() => seleccionarCarta(item)}>
+            <Text style={styles.cardText}>S</Text>
+          </TouchableOpacity>
+        )}
+      />
 
-    <FlatList
+      <FlatList
         data={cantidadPartidas}
         keyExtractor={(item) => item.id.toString()}
         contentContainerStyle={styles.listContainer}
@@ -53,7 +53,7 @@ export default function Home() {
             </Text>
           </View>
         )}
-           />
+      />
     </View>
   )
 }
@@ -71,10 +71,10 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   cardText: { fontSize: 26, color: "#fff" },
-    listContainer: {
+  listContainer: {
     paddingBottom: 24,
   },
-   cardText2: {
+  cardText2: {
     fontSize: 16,
     fontWeight: "600",
   },
