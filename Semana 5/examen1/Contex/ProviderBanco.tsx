@@ -46,16 +46,16 @@ const showAlert = (mensaje:string) => {
       mensaje, 
       [
         {
-          text: 'Cancelar',          // Botón "Cancelar"
+          text: 'Cancelar',         
           onPress: () => console.log('Cancelado'),
           style: 'cancel',
         },
         {
-          text: 'Aceptar',          // Botón "Aceptar"
+          text: 'Aceptar',          
           onPress: () => console.log('Aceptado'),
         },
       ],
-      { cancelable: true }          // Permite cerrar la alerta tocando fuera de ella
+      { cancelable: true }          
     );
   };
 
